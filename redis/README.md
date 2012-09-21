@@ -18,7 +18,7 @@ and
 val o = play.api.cache.Cache.getAs[String]("mykey")
 ```
 
-* configurable ( variables: ```redis.host```, ```redis.port```, ```redis.timeout```, defaults are ```localhost```, ```6379```, ```2000``` )
+* configurable ( variables: ```redis.host```, ```redis.port```, ```redis.timeout```, ```redis.password```, defaults are ```localhost```, ```6379```, ```2000```, ```nul``` )
 
 * Allows direct access to Jedis and Sedis: 
 
@@ -31,7 +31,7 @@ Jedis j = play.Play.application().plugin(RedisPlugin.class).jedisPool().getResou
 
 try {
   /// ... do stuff here 
-  jedis.set("foo", "bar");
+  j.set("foo", "bar");
 } finally {
   play.Play.application().plugin(RedisPlugin.class).jedisPool().returnResource(j);
 }  
@@ -61,8 +61,12 @@ play 2.0.1:
 
 * add ```550:com.typesafe.plugin.RedisPlugin```
 
-*  while this plugin is going to be loaded before the default cache implementation, it's a good practice to disable the overwritten plugin, so in ```app/conf/application.conf``` add:
-```ehcacheplugin=disabled```
+*  while this plugin is going to be loaded before the default cache implementation,  it's a good practice to disable the overwritten plugin:
+
+```
+#conf/application.conf
+ehcacheplugin=disabled
+```
 
 # Sample
 
