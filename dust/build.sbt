@@ -4,13 +4,13 @@ sbtPlugin := true
 
 name := "play-plugins-dust"
 
-version := "1.4-2012.08.15.c4c3576-v3"
+version := "1.4-2012.09.20.1886ca6"
 
 organization := "com.typesafe"
 
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-libraryDependencies += "play" % "sbt-plugin" % "2012.08.15.c4c3576"
+libraryDependencies += "play" % "sbt-plugin" % "2012.09.20.1886ca6"
 
 libraryDependencies += "commons-io" % "commons-io" % "2.2"
 
